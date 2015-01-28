@@ -54,7 +54,7 @@ $ ./go serve
 This will check that your Ruby version is supported, install the [Bundler
 gem](http://bundler.io/) if it is not yet installed, install all the gems
 needed by the playbook, and launch a running instance on
-`http://localhost:4000`.
+`http://localhost:4000/automated-testing-playbook/`.
 
 After going through these steps, run `./go` to see a list of available
 commands. The `serve` command is the most common for routine development.
