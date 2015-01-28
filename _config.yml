@@ -1,0 +1,31 @@
+# Site settings
+title: Automated Testing Playbook
+email: michael.bland@gsa.gov
+description: >
+  A set of principles, practices, idioms, and strategies pertaining to
+  automated software testing and its adoption.
+baseurl: "/automated-testing-playbook"
+url: "http://18f.gsa.gov"
+github_username:  mbland
+
+# Build settings
+markdown: redcarpet
+exclude:
+- README.md
+- LICENSE.md
+- CONTRIBUTING.md
+- deploy
+- vendor
+- go
+
+permalink: pretty
+
+defaults:
+  -
+    scope:
+      path: "pages"
+    values:
+      layout: "default"
+      edit_info:
+        repo: 18F/automated-testing-playbook
+        branch: master
