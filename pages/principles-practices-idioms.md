@@ -54,11 +54,11 @@ of a project or system. More specifically:
 - You want a few large tests to provide confidence that the end-to-end system
   is hanging together without any pieces falling off.
 - For a production system or framework, you want a balance of all three, not
-  to exclusively rely on only one size of tests alone. A team developing only
-  pure in-process library code may get away without large tests, but most
-  other projects should most definitely have them. Larger systems might even
-  benefit from some “enormous” tests and/or a staging system mirroring
-  production, possibly requiring manual intervention and monitoring.
+  relying on one size of tests alone. A team developing only pure, in-process,
+  library code may get away without large tests, but most other projects should
+  have them. Larger systems might even benefit from some “enormous” tests and/or
+  a staging system mirroring production, possibly requiring manual intervention
+  and monitoring.
 
 The goal is to __automate at the lowest level possible, but no lower__. Shoot
 for an appropriate balance, not an ideal one. There will always be a need for
