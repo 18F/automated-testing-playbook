@@ -34,13 +34,14 @@ categories](https://mike-bland.com/2011/11/01/small-medium-large.html):
   data file or two, but preferably no file system dependencies whatsoever);
   very fast execution on the order of seconds
 - **Medium (Integration)**: Exercises interaction between discrete components;
-  may have file system dependencies or run multiple processes; runs on the
-  order of minutes
+  may have file system dependencies or run multiple processes, including test
+  databases; runs on the order of minutes
 - **Large (System)**: Exercises the entire system, end-to-end; used to
   identify catastrophic errors and performance bottlenecks at scale; may
-  launch or interact with services in a datacenter, preferably with a staging
-  environment to avoid affecting production (especially user traffic, and most
-  especially advertising traffic!); can run on the order of minutes or hours
+  launch or interact with live databases or services in a datacenter,
+  preferably within a staging environment to avoid affecting production
+  (especially user traffic, and most especially advertising traffic!); can run
+  on the order of minutes or hours
 
 The idea here is that you don’t want tests of only one size; different sizes
 of tests serve very different purposes, but all sizes are vital to the health
