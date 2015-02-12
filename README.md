@@ -3,6 +3,11 @@
 A set of principles, practices, idioms, and strategies pertaining to automated
 software testing and its adoption.
 
+**WORK IN PROGRESS:** This material is currently in draft form and under
+active development. See [the GitHub issues
+page](https://github.com/18F/automated-testing-playbook/issues) to examine
+progress.
+
 This guide is a distillation of the principles found in Mike Bland's [Unit
 Testing Perspectives](href="http://goo.gl/eE8IUw) presentation, licensed under
 [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/deed.en_US), based on a

@@ -7,6 +7,11 @@ title: Education and Advocacy
 Models and strategies for driving adoption of automated testing throughout a
 development culture.
 
+**WORK IN PROGRESS:** This material is currently in draft form and under
+active development. See [the GitHub issues
+page](https://github.com/18F/automated-testing-playbook/issues) to examine
+progress.
+
 - [Abandon Data and Absolute Reason](#abandon-data)
 - [TDD Is Not for Everyone](#tdd-is-not-for-everyone)
 - [Crossing the Chasm](#crossing-the-chasm)

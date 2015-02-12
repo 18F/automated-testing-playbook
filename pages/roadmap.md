@@ -12,6 +12,11 @@ Toilet episode](https://mike-bland.com/images/tott-test-certified.jpg). Though
 these steps are not split into "levels", they should be followed in roughly the
 order listed below.
 
+**WORK IN PROGRESS:** This material is currently in draft form and under
+active development. See [the GitHub issues
+page](https://github.com/18F/automated-testing-playbook/issues) to examine
+progress.
+
 - [Set Up a Continuous Build](#cb)
 - [Register a Coverage Bundle](#coverage)
 - [Classify Tests by Size](#classify)

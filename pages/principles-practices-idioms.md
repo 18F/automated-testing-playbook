@@ -7,6 +7,11 @@ title: Principles, Practices and Idioms
 Fundamental automated testing and design concepts that inform the craft of
 writing automated tests and testable code.
 
+**WORK IN PROGRESS:** This material is currently in draft form and under
+active development. See [the GitHub issues
+page](https://github.com/18F/automated-testing-playbook/issues) to examine
+progress.
+
 - [Small, Medium, and Large Test Sizes: The Test Size Pyramid](#sml)
 - [Strongly Prefer Composition over Implementation Inheritance](#composition)
 - [Know the Difference Between Stubs, Mocks, and Fakes](#doubles)

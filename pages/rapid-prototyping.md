@@ -7,6 +7,11 @@ title: Rapid Prototyping
 When it's OK to get by without writing automated tests, and when it's time
 to switch gears and add them.
 
+**WORK IN PROGRESS:** This material is currently in draft form and under
+active development. See [the GitHub issues
+page](https://github.com/18F/automated-testing-playbook/issues) to examine
+progress.
+
 - [Permission](#permission)
 - [Exploration](#exploration)
 - [Exploration vs. …](#exploration-vs)
