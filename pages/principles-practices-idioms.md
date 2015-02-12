@@ -65,6 +65,12 @@ The goal is to __automate at the lowest level possible, but no lower__. Shoot
 for an appropriate balance, not an ideal one. There will always be a need for
 manual testing; the point is to get the most out of it, not to eliminate it.
 
+Given rigorous test size definitions, combined with labeling or directory
+separation conventions, it's possible to develop tooling to run subsets of
+tests based on size. Iterating rapidly by running small tests frequently while
+developing, combined with running large tests before and after every check-in,
+strikes a good balance between speed and security.
+
 References:
 
 - [Small, Medium, Large](https://mike-bland.com/2011/11/01/small-medium-large.html)
