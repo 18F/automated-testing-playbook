@@ -12,7 +12,13 @@ posts](https://mike-bland.com/)</a> as well as some of his posts on [AutoTest
 Central](http://autotestcentral.com/)</a>; both blogs are also licensed under
 CC BY 4.0.</p>
 
-This playbook is divided into four sections:
+This playbook is divided into five sections:
+
+### [Automated Testing Roadmap](pages/roadmap.md)
+
+A roadmap towards improving a team's automated testing practices, loosely
+based on [Google's Test Certified
+program](https://mike-bland.com/2011/10/18/test-certified.html).
 
 ### [Principles, Practices and Idioms](pages/principles-practices-idioms.md)
 
