@@ -1,7 +1,9 @@
 ---
-permalink: /principles-practices-idioms/
-title: Principles, Practices and Idioms
+permalink: "/principles-practices-idioms/"
+title: "Principles, Practices and Idioms"
+published: true
 ---
+
 ## {{ page.title }}
 
 Fundamental automated testing and design concepts that inform the craft of
@@ -77,28 +79,13 @@ References:
 
 ### <a name="composition"></a>Strongly Prefer Composition over Implementation Inheritance
 
-Implementation inheritance potentially requires lots of context to understand.
-Inherited dependencies are often implicit and hard to replace, leading to
-brittle, complicated, slow, and/or nondeterministic (i.e. “flaky”) tests.
+Reuse classes via composition rather than implementation inheritance. Composition-based design leads to greater modularity, producing classes that are easier to reuse across otherwise unrelated classes. Composed classes are also easier to isolate and test (using [stubs, mocks, or fakes](#doubles), described below), and may be more easily modified or extended by replacing one implementation of an internal object with another. The increased modularity, cohesion and testability of the resulting classes is often worth the cost of the extra code required to delegate method calls to internal objects.
 
-Objects used to compose larger objects are easier to test in isolation, and
-easier to reuse across otherwise unrelated objects. By the same token, objects
-composed of other objects are also easier to isolate and test (using stubs,
-mocks, or fakes, described below), and may be more easily modified or extended
-by replacing one implementation of an internal object with another.
+In contrast, implementation inheritance tightly couples base and derived classes, introduces dependencies that are often hard to replace, and can obfuscate features, making them hard to understand, isolate and test. These factors lead to brittle, complicated, slow, and/or nondeterministic (i.e. “flaky”) tests.
 
-The Go Programming Language has proven that you don’t even need inheritance at
-all; object composition (aka
-“[embedding](http://golang.org/doc/effective_go.html#embedding)” in Go
-parlance) is a first-class feature, and [compiler-checked interfaces and
-“interface
-variables”](http://golang.org/doc/effective_go.html#interfaces_and_types)
-allow polymorphism without interface inheritance.
+In statically-typed languages, abstract interface definitions (containing no implementation details) enable a function or a method to accept any object inheriting a particular interface. In dynamically-typed (i.e. "duck-typed") languages, explicit interface inheritance is unnecessary, since the language runtime will raise an exception when the interface contracted is violated.
 
-In dynamically-typed (i.e. “duck-typed”) languages, interface inheritance is
-equally unnecessary, and the increased modularity, cohesion and testability of
-the resulting classes is often worth the cost of the extra code required to
-delegate method calls to internal objects.
+The Go Programming Language has proven that you don’t even need inheritance at all; object composition (aka “[embedding](http://golang.org/doc/effective_go.html#embedding)” in Go parlance) is a first-class feature, and [compiler-checked interfaces and “interface variables”](http://golang.org/doc/effective_go.html#interfaces_and_types) allow polymorphism without interface inheritance.
 
 ### <a name="doubles"></a>Know the Difference Between Stubs, Mocks, and Fakes
 
