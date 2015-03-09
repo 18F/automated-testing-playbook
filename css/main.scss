@@ -50,3 +50,9 @@ $on-laptop:        800px;
         "layout",
         "syntax-highlighting"
 ;
+
+strong {
+    // Firefox won't render the strong tag as bold here unless it's explicitly
+    // told to do so.
+    font-weight: bold;
+}
