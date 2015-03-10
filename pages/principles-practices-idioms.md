@@ -4,6 +4,7 @@ title: "Principles, Practices and Idioms"
 published: true
 ---
 
+
 ## {{ page.title }}
 
 Fundamental automated testing and design concepts that inform the craft of
@@ -77,15 +78,17 @@ References:
 - [Small, Medium, Large](https://mike-bland.com/2011/11/01/small-medium-large.html)
 - [Small, Medium and Large Test Sizes](http://autotestcentral.com/small-medium-and-large-test-sizes)
 
-### <a name="composition"></a>Strongly Prefer Composition over Implementation Inheritance
+### <a name="composition"></a>Strongly Prefer Composition over Inheritance
 
-Reuse classes via composition rather than implementation inheritance. Composition-based design leads to greater modularity, producing classes that are easier to reuse across otherwise unrelated classes. Composed classes are also easier to isolate and test (using [stubs, mocks, or fakes](#doubles), described below), and may be more easily modified or extended by replacing one implementation of an internal object with another. The increased modularity, cohesion and testability of the resulting classes is often worth the cost of the extra code required to delegate method calls to internal objects.
+Testability begins with design. Reuse classes via composition rather than inheritance whenever possible.
 
-In contrast, implementation inheritance tightly couples base and derived classes, introduces dependencies that are often hard to replace, and can obfuscate features, making them hard to understand, isolate and test. These factors lead to brittle, complicated, slow, and/or nondeterministic (i.e. “flaky”) tests.
+Composition-based design produces classes that can be tested more efficiently and vigorously, and are easier to reuse across otherwise unrelated classes. Classes composed of smaller objects are also easier to isolate and test (using [fakes, mocks, and stubs](#doubles), if necessary), and can more easily grow and change by adding, removing, or replacing internal objects. The increased modularity and testability of composed classes is often worth the cost of the extra code required to delegate method calls to internal objects.
 
-In statically-typed languages, abstract interface definitions (containing no implementation details) enable a function or a method to accept any object inheriting a particular interface. In dynamically-typed (i.e. "duck-typed") languages, explicit interface inheritance is unnecessary, since the language runtime will raise an exception when the interface contracted is violated.
+Inheriting from a class to reuse its implementation often introduces dependencies that are hard to replace, and can hide behavior. Tests for derived classes with non-obvious behaviors and heavyweight dependencies are often complicated, brittle, slow, and/or nondeterministic (i.e. “flaky”).
 
-The Go Programming Language has proven that you don’t even need inheritance at all; object composition (aka “[embedding](http://golang.org/doc/effective_go.html#embedding)” in Go parlance) is a first-class feature, and [compiler-checked interfaces and “interface variables”](http://golang.org/doc/effective_go.html#interfaces_and_types) allow polymorphism without interface inheritance.
+On the other hand, in statically-typed languages (e.g. C++, Java), interface-only inheritance enables an object to be replaced with any other object of the same interface. Classes can then be composed of references to interface classes, rather than instances of concrete classes (i.e. dependency injection). Tests can use these interfaces to define fakes, mocks, or stubs that replace heavyweight or complicated dependencies and provide better control of the code under test. In dynamically-typed languages (e.g. Python, Ruby, Javascript), interface inheritance is unnecessary, since the language runtime will raise an exception when the interface contracted is violated.
+
+If you are using a framework that requires you to inherit implementation from classes in order to hook into it (e.g. Jekyll), you can still implement your derived classes in a compositional style. In this way, you can isolate and test most of the behavior specific to your application without having to set up and manage the framework's dependencies and configuration. For an example, see the `_plugins` and `_test` directories of the [18F Hub](https://github.com/18F/hub). Though [Hub::Generator](https://github.com/18F/hub/blob/master/_plugins/hub.rb) derives from `Jekyll::Generator`, all of its behaviors are encapsulated in other classes, which are tested in isolation.
 
 ### <a name="doubles"></a>Know the Difference Between Stubs, Mocks, and Fakes
 
