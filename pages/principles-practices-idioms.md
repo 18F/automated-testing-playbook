@@ -90,6 +90,10 @@ On the other hand, in statically-typed languages (e.g. C++, Java), interface-onl
 
 If you are using a framework that requires you to inherit implementation from classes in order to hook into it (e.g. Jekyll), you can still implement your derived classes in a compositional style. In this way, you can isolate and test most of the behavior specific to your application without having to set up and manage the framework's dependencies and configuration. For an example, see the `_plugins` and `_test` directories of the [18F Hub](https://github.com/18F/hub). Though [Hub::Generator](https://github.com/18F/hub/blob/master/_plugins/hub.rb) derives from `Jekyll::Generator`, all of its behaviors are encapsulated in other classes, which are tested in isolation.
 
+References:
+- [Max Three Layers Of Inheritance from the c2 wiki](http://c2.com/cgi/wiki?MaxThreeLayersOfInheritance)
+- ["When to Use Inheritance or Composition" from _Learn Python the Hard Way_](http://learnpythonthehardway.org/book/ex44.html#when-to-use-inheritance-or-composition)
+
 ### <a name="doubles"></a>Know the Difference Between Stubs, Mocks, and Fakes
 
 Not all objects that stand in for “real” classes are __mock__ objects.
