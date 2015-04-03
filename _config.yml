@@ -1,5 +1,5 @@
 # Site settings
-title: Automated Testing Playbook
+title: 18F Automated Testing Playbook
 email: michael.bland@gsa.gov
 description: >
   A set of principles, practices, idioms, and strategies pertaining to
@@ -31,6 +31,9 @@ defaults:
         branch: master
 
 # DOCter bits after this
+
+name: Automated Testing Playbook
+subtitle:
 
 # Author/Organization info to be displayed in the templates
 author:
