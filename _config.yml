@@ -29,3 +29,44 @@ defaults:
       edit_info:
         repo: 18F/automated-testing-playbook
         branch: master
+
+# DOCter bits after this
+
+# Author/Organization info to be displayed in the templates
+author:
+  name: 18F
+  url: https://18f.gsa.gov
+
+# Point the logo URL at a file in your repo or hosted elsewhere by your organization
+logourl: /assets/img/18f-logo.png
+logoalt: 18f logo
+
+# Navigation
+# List links that should appear in the site sidebar here
+navigation:
+- text: Introduction
+  url: index.html
+  internal: true
+- text: Automated Testing Roadmap
+  url: roadmap/
+  internal: true
+- text: Principles, Practices and Idioms
+  url: principles-practices-idioms/
+  internal: true
+- text: APIs and Legacy Systems
+  url: apis-and-legacy-systems/
+  internal: true
+- text: Rapid Prototyping
+  url: rapid-prototyping/
+  internal: true
+- text: Education and Advocacy
+  url: education-and-advocacy/
+  internal: true
+
+repos:
+- name: Automated Testing Playbook
+  description: Main repository
+  url: https://github.com/18F/automated-testing-playbook
+
+# Style Variables
+brand_color: "#1188ff"
