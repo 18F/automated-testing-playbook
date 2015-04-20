@@ -3,10 +3,6 @@ permalink: "/principles-practices-idioms/"
 title: "Principles, Practices and Idioms"
 published: true
 ---
-
-
-## {{ page.title }}
-
 Fundamental automated testing and design concepts that inform the craft of
 writing automated tests and testable code.
 

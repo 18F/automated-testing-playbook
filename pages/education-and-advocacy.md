@@ -2,8 +2,6 @@
 permalink: /education-and-advocacy/
 title: Education and Advocacy
 ---
-## {{ page.title }}
-
 Models and strategies for driving adoption of automated testing throughout a
 development culture.
 

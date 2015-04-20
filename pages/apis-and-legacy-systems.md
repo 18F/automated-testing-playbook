@@ -2,8 +2,6 @@
 permalink: /apis-and-legacy-systems/
 title: APIs and Legacy Systems
 ---
-## {{ page.title }}
-
 Technical impediments to the automated testing of existing systems and how
 to overcome them.
 

@@ -2,8 +2,6 @@
 permalink: /rapid-prototyping/
 title: Rapid Prototyping
 ---
-## {{ page.title }}
-
 When it's OK to get by without writing automated tests, and when it's time
 to switch gears and add them.
 

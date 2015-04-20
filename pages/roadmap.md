@@ -2,8 +2,6 @@
 permalink: /roadmap/
 title: Automated Testing Roadmap
 ---
-## {{ page.title }}
-
 This is a roadmap towards improving a team's automated testing practices,
 loosely based on [Google's Test Certified
 program](https://mike-bland.com/2011/10/18/test-certified.html), as
