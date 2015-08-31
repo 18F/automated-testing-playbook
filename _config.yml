@@ -4,31 +4,24 @@ email: michael.bland@gsa.gov
 description: >
   A set of principles, practices, idioms, and strategies pertaining to
   automated software testing and its adoption.
-baseurl: "/automated-testing-playbook"
 url: "http://18f.gsa.gov"
 github_username:  mbland
 
 # Build settings
 markdown: redcarpet
 exclude:
-- README.md
-- LICENSE.md
 - CONTRIBUTING.md
-- deploy
-- vendor
+- Gemfile
+- Gemfile.lock
+- LICENSE.md
+- README.md
 - go
 
 permalink: pretty
+highlighter: rouge
 
-defaults:
-  -
-    scope:
-      path: "pages"
-    values:
-      layout: "default"
-      edit_info:
-        repo: 18F/automated-testing-playbook
-        branch: master
+sass:
+  style: :compressed
 
 # DOCter bits after this
 
@@ -71,14 +64,7 @@ repos:
   description: Main repository
   url: https://github.com/18F/automated-testing-playbook
 
-# Style Variables
-brand_color: "#1188ff"
-
 google_analytics_ua: UA-48605964-19
-
-# To use the shared 18F Guides styles when deploying to pages.18f.gov,
-# uncomment the following; comment it out during local development:
-asset_root: /guides-template
 
 back_link:
   url: "https://pages.18f.gov/guides/"

@@ -25,7 +25,7 @@ progress.
 
 ### <a name="sml"></a>Small, Medium, and Large Test Sizes: The Test Size Pyramid
 
-![Small/Medium/Large Test Size Pyramid](../assets/images/sml.jpg)<br/>
+![Small/Medium/Large Test Size Pyramid](../images/sml.jpg)<br/>
 _Illustration by Catherine Laplace, based on my hand-drawn sketch of a slide
 from the Google Unit Testing Lecture slides, originally by Nick
 Lesiecki_
