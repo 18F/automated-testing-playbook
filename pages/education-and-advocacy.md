@@ -55,7 +55,7 @@ Chasm](http://en.wikipedia.org/wiki/Crossing_the_Chasm)* first explains the
 different
 segments of the Bell curve-shaped diffusion of innovations model:
 
-![Diffusion of Innovations and the Chasm](../assets/images/the-chasm.jpg)<br/>
+![Diffusion of Innovations and the Chasm](../images/the-chasm.jpg)<br/>
 _Image by Catherine Laplace based on other illustrations of the “Crossing the
 Chasm” model._
 
