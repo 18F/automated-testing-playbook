@@ -15,7 +15,7 @@ active development. See [the GitHub issues
 page](https://github.com/18F/automated-testing-playbook/issues) to examine
 progress.
 
-- [Set Up a Continuous Build](#cb)
+- [Set up a continuous build](#cb)
 - [Register a Coverage Bundle](#coverage)
 - [Classify Tests by Size](#classify)
 - [Create a Smoke Test Suite](#smoke)
@@ -31,7 +31,7 @@ progress.
 ### <a name="cb"></a>Set Up a Continuous Build
 
 A continuous build system is the first important step to take in establishing
-an automated testing culture. Even if the system does not currently have tests, 
+an automated testing culture. Even if the system does not currently have tests,
 a continuous integration/build system will encourage the team to keep the build free of non test-related breakages.
 
 ### <a name="coverage"></a>Register a Coverage Bundle
