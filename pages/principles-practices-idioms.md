@@ -11,41 +11,41 @@ active development. See [the GitHub issues
 page](https://github.com/18F/automated-testing-playbook/issues) to examine
 progress.
 
-- [Small, Medium, and Large Test Sizes: The Test Size Pyramid](#sml)
-- [Strongly Prefer Composition over Implementation Inheritance](#composition)
-- [Know the Difference Between Stubs, Mocks, and Fakes](#doubles)
-- [Avoid Mocks](#avoid-mocks)
-- [Prefer Fakes](#prefer-fakes)
-- [Avoid Data-Driven Tests](#avoid-data-driven-tests)
-- [Avoid Golden File Tests (Unless They Make Sense)](#avoid-golden-files)
-- [Prefer Self-Contained Test Cases with Good Names](#self-contained-good-names)
-- [Apply the Pseudo-xUnit Pattern If Necessary](#pseudo-xunit)
-- [Well-Crafted Test Case Repetition Helps](#test-repetition)
-- [Duplicate Code is a (Testing) Nightmare](#duplicate-code)
+- [Small, medium, and large test sizes: The test size pyramid](#sml)
+- [Strongly prefer composition over implementation inheritance](#composition)
+- [Know the difference between stubs, mocks, and fakes](#doubles)
+- [Avoid mocks](#avoid-mocks)
+- [Prefer fakes](#prefer-fakes)
+- [Avoid data-driven tests](#avoid-data-driven-tests)
+- [Avoid golden file tests (unless they make sense)](#avoid-golden-files)
+- [Prefer self-contained test cases with good names](#self-contained-good-names)
+- [Apply the pseudo-xUnit pattern if necessary](#pseudo-xunit)
+- [Well-crafted test case repetition helps](#test-repetition)
+- [Duplicate code is a (testing) nightmare](#duplicate-code)
 
 ### <a name="sml"></a>Small, Medium, and Large Test Sizes: The Test Size Pyramid
 
-![Small/Medium/Large Test Size Pyramid](../images/sml.jpg)<br/>
+![Small/medium/large test size pyramid](../images/sml.jpg)<br/>
 _Illustration by Catherine Laplace, based on my hand-drawn sketch of a slide
 from the Google Unit Testing Lecture slides, originally by Nick
-Lesiecki_
+Lesiecki._
 
 An automated test can fall into one of [three broad
 categories](https://mike-bland.com/2011/11/01/small-medium-large.html):
 
-- **Small (Unit)**: Very fine-grained; exercises low-level logic at the scope
-  of a function or a class; no external resources (except possibly a small
-  data file or two, but preferably no file system dependencies whatsoever);
-  very fast execution on the order of seconds
-- **Medium (Integration)**: Exercises interaction between discrete components;
-  may have file system dependencies or run multiple processes, including test
-  databases; runs on the order of minutes
-- **Large (System)**: Exercises the entire system, end-to-end; used to
-  identify catastrophic errors and performance bottlenecks at scale; may
+- **Small (unit)**: Very fine-grained, exercises low-level logic at the scope
+  of a function or a class, and uses no external resources (except possibly a small
+  data file or two, but preferably no file system dependencies whatsoever).
+  Very fast execution on the order of seconds.
+- **Medium (integration)**: Exercises interaction between discrete components.
+  May have file system dependencies or run multiple processes, including test
+  databases. Runs on the order of minutes.
+- **Large (system)**: Exercises the entire system, end-to-end. Used to
+  identify catastrophic errors and performance bottlenecks at scale. May
   launch or interact with live databases or services in a datacenter,
   preferably within a staging environment to avoid affecting production
-  (especially user traffic, and most especially advertising traffic!); can run
-  on the order of minutes or hours
+  (especially user traffic, and most especially advertising traffic!). Can run
+  on the order of minutes or hours.
 
 The idea here is that you don’t want tests of only one size; different sizes
 of tests serve very different purposes, but all sizes are vital to the health
@@ -55,7 +55,7 @@ of a project or system. More specifically:
   ensure that a low-level change is free of negative side-effects, without
   breaking the “flow” state while developing.
 - You want a decent-sized layer of medium tests to ensure that contracts are
-  honored at interface and component/subsystem boundaries.
+  honored at interface and component or subsystem boundaries.
 - You want a few large tests to provide confidence that the end-to-end system
   is hanging together without any pieces falling off.
 - For a production system or framework, you want a balance of all three, not
