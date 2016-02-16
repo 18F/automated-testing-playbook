@@ -1,6 +1,6 @@
 ---
 permalink: /roadmap/
-title: Automated Testing Roadmap
+title: Automated testing roadmap
 ---
 This is a roadmap towards improving a team's automated testing practices,
 loosely based on [Google's Test Certified
@@ -14,19 +14,6 @@ order listed below.
 active development. See [the GitHub issues
 page](https://github.com/18F/automated-testing-playbook/issues) to examine
 progress.
-
-- [Set up a continuous build](#cb)
-- [Register a coverage bundle](#coverage)
-- [Classify tests by size](#classify)
-- [Create a smoke test suite](#smoke)
-- [Identify nondeterministic tests](#mark-flaky)
-- [Establish test classification ratio](#ratio)
-- [No releases with broken tests](#releases)
-- [Require tests for all nontrivial changes](#require)
-- [Require tests/smoke tests to pass before submit](#pass-before-submit)
-- [No nondeterministic tests](#no-flaky)
-- [Total coverage at least X%](#total-cov)
-- [All/smoke tests run in X minutes or less](#runtime)
 
 ### <a name="cb"></a>Set up a continuous build
 
