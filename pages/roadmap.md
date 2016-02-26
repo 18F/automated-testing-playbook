@@ -19,7 +19,7 @@ progress.
 
 A continuous build system is the first important step in establishing
 an automated testing culture. Even if the system does not currently have tests,
-a continuous integration and build system will encourage the team to keep the build free of non test-related breakages.
+a continuous integration and build system will encourage the team to keep the build free of non-test-related breakages.
 
 ### <a name="coverage"></a>Register a coverage bundle
 
