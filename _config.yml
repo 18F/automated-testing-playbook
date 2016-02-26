@@ -16,6 +16,7 @@ exclude:
 - LICENSE.md
 - README.md
 - go
+- vendor
 
 permalink: pretty
 highlighter: rouge
