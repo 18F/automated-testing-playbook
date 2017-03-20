@@ -55,7 +55,7 @@ Chasm](http://en.wikipedia.org/wiki/Crossing_the_Chasm)* first explains the
 different
 segments of the Bell curve-shaped diffusion of innovations model:
 
-![Diffusion of Innovations and the Chasm](../images/the-chasm.jpg)<br/>
+![Diffusion of Innovations and the Chasm]({{ site.baseurl }}/images/the-chasm.jpg)<br/>
 _Image by Catherine Laplace based on other illustrations of the “Crossing the
 Chasm” model._
 
@@ -92,10 +92,8 @@ Government](https://18f.gsa.gov/2014/12/11/large-scale-development-culture-chang
 describes a progression of activities Instigators must undertake to lead the
 Early Majority across the chasm.
 
-![Crossing the Chasm via the Rainbow of
-Death](../assets/images/crossing-the-chasm-rainbow-of-death.jpg)<br/>
-![Close-up of Crossing the Chasm via the Rainbow of
-Death](../assets/images/rainbow-of-death.jpg)<br/>
+![Crossing the Chasm via the Rainbow of Death]({{ site.baseurl }}/images/crossing-the-chasm-rainbow-of-death.jpg)<br/>
+![Close-up of Crossing the Chasm via the Rainbow of Death]({{ site.baseurl }}/images/rainbow-of-death.jpg)<br/>
 _Images by Catherine Laplace based on other illustrations of the “Crossing the
 Chasm” model and Albert Wong’s framework image._
 
@@ -143,8 +141,7 @@ ways possible. Some of the more significant efforts included:
 This is how these efforts and a few others fit into the "Rainbow of Death"
 model:
 
-![The Google Testing Grouplet's Rainbow of
-Death](../assets/images/testing-grouplet-rainbow-of-death.jpg)<br/>
+![The Google Testing Grouplet's Rainbow of Death]({{ site.baseurl }}/images/testing-grouplet-rainbow-of-death.jpg)<br/>
 _Derived from Albert Wong’s original framework slide from a Google-internal
 tech talk._
 

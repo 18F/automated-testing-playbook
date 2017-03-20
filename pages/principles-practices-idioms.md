@@ -13,13 +13,12 @@ progress.
 
 ### <a name="sml"></a>Small, medium, and large test sizes: The test size pyramid
 
-![Small/medium/large test size pyramid](../images/sml.jpg)<br/>
+![Small/medium/large test size pyramid]({{ site.baseurl }}/images/sml.jpg)<br/>
 _Illustration by Catherine Laplace, based on my hand-drawn sketch of a slide
 from the Google Unit Testing Lecture slides, originally by Nick
 Lesiecki._
 
-An automated test can fall into one of [three broad
-categories](https://mike-bland.com/2011/11/01/small-medium-large.html):
+An automated test can fall into one of [three broad categories](https://mike-bland.com/2011/11/01/small-medium-large.html):
 
 - **Small (unit)**: Very fine-grained, exercises low-level logic at the scope
   of a function or a class, and uses no external resources (except possibly a small
