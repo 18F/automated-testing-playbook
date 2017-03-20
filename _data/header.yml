@@ -1,0 +1,8 @@
+# This is the configuration for the site header.
+
+# Uncomment this statement (by removing the leading '# ') to set the
+# header title differently from the site's title (as defined in
+# _config.yml).
+# title: Header title
+
+primary: false

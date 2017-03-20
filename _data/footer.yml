@@ -1,0 +1,17 @@
+# Whether to show the "Return to top" link; can also be
+# configured as an object with 'text' and 'href' properties.
+top: false
+
+# The optional heading for the footer.
+
+# An array of agency logos to show, side by side, in the lower left
+# of the footer on large screens.
+logos:
+  - src: /assets/img/18f-logo.svg
+    alt: 18F
+    url: https://18f.gsa.gov/
+
+contact:
+  heading: Brought to you by 18F
+  address: |
+    [18F](https://18f.gsa.gov/) is a division of the [U.S. General Services Administration](https://gsa.gov).
