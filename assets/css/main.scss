@@ -1,0 +1,15 @@
+---
+---
+
+$font-path: '../uswds/fonts';
+$img-path: '../uswds/img';
+
+@import 'uswds/all';
+
+.usa-logo {
+  background-image: url('{{ site.logourl | relative_url }}');
+  background-size: 1.6em;
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 2.2em;
+}
