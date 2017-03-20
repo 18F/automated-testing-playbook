@@ -22,7 +22,7 @@ permalink: pretty
 highlighter: rouge
 
 sass:
-  style: :compressed
+  style: compressed
 
 # DOCter bits after this
 
@@ -72,8 +72,7 @@ back_link:
   text: Read more 18F Guides
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
     values:
       layout: "guides_style_18f_default"
