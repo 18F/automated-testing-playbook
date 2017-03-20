@@ -1,0 +1,13 @@
+primary:
+  - text: Introduction
+    href: /
+  - text: Automated Testing Roadmap
+    href: /roadmap/
+  - text: Principles, Practices and Idioms
+    href: /principles-practices-idioms/
+  - text: APIs and Legacy Systems
+    href: /apis-and-legacy-systems/
+  - text: Rapid Prototyping
+    href: /rapid-prototyping/
+  - text: Education and Advocacy
+    href: /education-and-advocacy/
