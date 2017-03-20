@@ -3,6 +3,11 @@
 A set of principles, practices, idioms, and strategies pertaining to automated
 software testing and its adoption.
 
+**WORK IN PROGRESS:** This material is currently in draft form and under
+active development. See [the GitHub issues
+page](https://github.com/18F/automated-testing-playbook/issues) to examine
+progress.
+
 This guide is a distillation of the principles found in Mike Bland's [Unit
 Testing Perspectives](href="http://goo.gl/eE8IUw) presentation, licensed under
 [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/deed.en_US), based on a
@@ -12,7 +17,13 @@ posts](https://mike-bland.com/)</a> as well as some of his posts on [AutoTest
 Central](http://autotestcentral.com/)</a>; both blogs are also licensed under
 CC BY 4.0.</p>
 
-This playbook is divided into four sections:
+This playbook is divided into five sections:
+
+### [Automated Testing Roadmap](pages/roadmap.md)
+
+A roadmap towards improving a team's automated testing practices, loosely
+based on [Google's Test Certified
+program](https://mike-bland.com/2011/10/18/test-certified.html).
 
 ### [Principles, Practices and Idioms](pages/principles-practices-idioms.md)
 

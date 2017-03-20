@@ -1,47 +1,39 @@
 ---
-permalink: /principles-practices-idioms/
-title: Principles, Practices and Idioms
+permalink: "/principles-practices-idioms/"
+title: "Principles, practices and idioms"
+published: true
 ---
-## {{ page.title }}
-
 Fundamental automated testing and design concepts that inform the craft of
 writing automated tests and testable code.
 
-- [Small, Medium, and Large Test Sizes: The Test Size Pyramid](#sml)
-- [Strongly Prefer Composition over Implementation Inheritance](#composition)
-- [Know the Difference Between Stubs, Mocks, and Fakes](#doubles)
-- [Avoid Mocks](#avoid-mocks)
-- [Prefer Fakes](#prefer-fakes)
-- [Avoid Data-Driven Tests](#avoid-data-driven-tests)
-- [Avoid Golden File Tests (Unless They Make Sense)](#avoid-golden-files)
-- [Prefer Self-Contained Test Cases with Good Names](#self-contained-good-names)
-- [Apply the Pseudo-xUnit Pattern If Necessary](#pseudo-xunit)
-- [Well-Crafted Test Case Repetition Helps](#test-repetition)
-- [Duplicate Code is a (Testing) Nightmare](#duplicate-code)
+**WORK IN PROGRESS:** This material is currently in draft form and under
+active development. See [the GitHub issues
+page](https://github.com/18F/automated-testing-playbook/issues) to examine
+progress.
 
-### <a name="sml"></a>Small, Medium, and Large Test Sizes: The Test Size Pyramid
+### <a name="sml"></a>Small, medium, and large test sizes: The test size pyramid
 
-![Small/Medium/Large Test Size Pyramid](../assets/images/sml.jpg)<br/>
+![Small/medium/large test size pyramid](../images/sml.jpg)<br/>
 _Illustration by Catherine Laplace, based on my hand-drawn sketch of a slide
 from the Google Unit Testing Lecture slides, originally by Nick
-Lesiecki_
+Lesiecki._
 
 An automated test can fall into one of [three broad
 categories](https://mike-bland.com/2011/11/01/small-medium-large.html):
 
-- **Small (Unit)**: Very fine-grained; exercises low-level logic at the scope
-  of a function or a class; no external resources (except possibly a small
-  data file or two, but preferably no file system dependencies whatsoever);
-  very fast execution on the order of seconds
-- **Medium (Integration)**: Exercises interaction between discrete components;
-  may have file system dependencies or run multiple processes, including test
-  databases; runs on the order of minutes
-- **Large (System)**: Exercises the entire system, end-to-end; used to
-  identify catastrophic errors and performance bottlenecks at scale; may
+- **Small (unit)**: Very fine-grained, exercises low-level logic at the scope
+  of a function or a class, and uses no external resources (except possibly a small
+  data file or two, but preferably no file system dependencies whatsoever).
+  Very fast execution on the order of seconds.
+- **Medium (integration)**: Exercises interaction between discrete components.
+  May have file system dependencies or run multiple processes, including test
+  databases. Runs on the order of minutes.
+- **Large (system)**: Exercises the entire system, end-to-end. Used to
+  identify catastrophic errors and performance bottlenecks at scale. May
   launch or interact with live databases or services in a datacenter,
   preferably within a staging environment to avoid affecting production
-  (especially user traffic, and most especially advertising traffic!); can run
-  on the order of minutes or hours
+  (especially user traffic, and most especially advertising traffic!). Can run
+  on the order of minutes or hours.
 
 The idea here is that you don’t want tests of only one size; different sizes
 of tests serve very different purposes, but all sizes are vital to the health
@@ -51,7 +43,7 @@ of a project or system. More specifically:
   ensure that a low-level change is free of negative side-effects, without
   breaking the “flow” state while developing.
 - You want a decent-sized layer of medium tests to ensure that contracts are
-  honored at interface and component/subsystem boundaries.
+  honored at interface and component or subsystem boundaries.
 - You want a few large tests to provide confidence that the end-to-end system
   is hanging together without any pieces falling off.
 - For a production system or framework, you want a balance of all three, not
@@ -73,35 +65,26 @@ strikes a good balance between speed and security.
 
 References:
 
-- [Small, Medium, Large](https://mike-bland.com/2011/11/01/small-medium-large.html)
-- [Small, Medium and Large Test Sizes](http://autotestcentral.com/small-medium-and-large-test-sizes)
+- [Small, medium, large](https://mike-bland.com/2011/11/01/small-medium-large.html)
+- [Small, medium and large Test Sizes](http://autotestcentral.com/small-medium-and-large-test-sizes)
 
-### <a name="composition"></a>Strongly Prefer Composition over Implementation Inheritance
+### <a name="composition"></a>Strongly prefer composition over inheritance
 
-Implementation inheritance potentially requires lots of context to understand.
-Inherited dependencies are often implicit and hard to replace, leading to
-brittle, complicated, slow, and/or nondeterministic (i.e. “flaky”) tests.
+Testability begins with design. Reuse classes via composition rather than inheritance whenever possible.
 
-Objects used to compose larger objects are easier to test in isolation, and
-easier to reuse across otherwise unrelated objects. By the same token, objects
-composed of other objects are also easier to isolate and test (using stubs,
-mocks, or fakes, described below), and may be more easily modified or extended
-by replacing one implementation of an internal object with another.
+Composition-based design produces classes that can be tested more efficiently and vigorously, and are easier to reuse across otherwise unrelated classes. Classes composed of smaller objects are also easier to isolate and test (using [fakes, mocks, and stubs](#doubles), if necessary), and can more easily grow and change by adding, removing, or replacing internal objects. The increased modularity and testability of composed classes is often worth the cost of the extra code required to delegate method calls to internal objects.
 
-The Go Programming Language has proven that you don’t even need inheritance at
-all; object composition (aka
-“[embedding](http://golang.org/doc/effective_go.html#embedding)” in Go
-parlance) is a first-class feature, and [compiler-checked interfaces and
-“interface
-variables”](http://golang.org/doc/effective_go.html#interfaces_and_types)
-allow polymorphism without interface inheritance.
+Inheriting from a class to reuse its implementation often introduces dependencies that are hard to replace, and can hide behavior. Tests for derived classes with non-obvious behaviors and heavyweight dependencies are often complicated, brittle, slow, and/or nondeterministic (i.e. “flaky”).
 
-In dynamically-typed (i.e. “duck-typed”) languages, interface inheritance is
-equally unnecessary, and the increased modularity, cohesion and testability of
-the resulting classes is often worth the cost of the extra code required to
-delegate method calls to internal objects.
+On the other hand, in statically-typed languages (for example C++ or Java), interface-only inheritance enables an object to be replaced with any other object of the same interface. Classes can then be composed of references to interface classes, rather than instances of concrete classes (i.e. dependency injection). Tests can use these interfaces to define fakes, mocks, or stubs that replace heavyweight or complicated dependencies and provide better control of the code under test. In dynamically-typed languages (for example Python, Ruby, or Javascript), interface inheritance is unnecessary, since the language runtime will raise an exception when the interface contracted is violated.
 
-### <a name="doubles"></a>Know the Difference Between Stubs, Mocks, and Fakes
+If you are using a framework that requires you to inherit implementation from classes in order to hook into it (e.g. Jekyll), you can still implement your derived classes in a compositional style. In this way, you can isolate and test most of the behavior specific to your application without having to set up and manage the framework's dependencies and configuration. For an example, see the `_plugins` and `_test` directories of the [18F Hub](https://github.com/18F/hub). Though [Hub::Generator](https://github.com/18F/hub/blob/master/_plugins/hub.rb) derives from `Jekyll::Generator`, all of its behaviors are encapsulated in other classes, which are tested in isolation.
+
+References:
+- [Max Three Layers Of Inheritance from the c2 wiki](http://c2.com/cgi/wiki?MaxThreeLayersOfInheritance)
+- ["When to Use Inheritance or Composition" from _Learn Python the Hard Way_](http://learnpythonthehardway.org/book/ex44.html#when-to-use-inheritance-or-composition)
+
+### <a name="doubles"></a>Know the difference between stubs, mocks, and fakes
 
 Not all objects that stand in for “real” classes are __mock__ objects.
 Generally known as “test doubles”, stubs, mocks, and fakes all serve to
@@ -114,7 +97,7 @@ useful when interaction with a collaborator is relatively straightforward.
 
 **Mock objects** are written using __mock object frameworks__, and are
 programmed to expect certain method calls by the code under test, and to
-return specific values as a result of such calls. They are more versatile than
+return specific values as a result of such calls. They're more versatile than
 stubs, and can verify more complex interactions, but can grow needlessly
 complex without careful tending.
 
@@ -126,10 +109,9 @@ are not validated, as they often are in the case of mocks.
 
 References:
 
-- [Testing on the Toilet: Know Your Test
-  Doubles](http://googletesting.blogspot.com/2013/07/testing-on-toilet-know-your-test-doubles.html)
+- [Testing on the Toilet: Know Your Test  Doubles](http://googletesting.blogspot.com/2013/07/testing-on-toilet-know-your-test-doubles.html)
 
-### <a name="avoid-mocks"></a>Avoid Mocks
+### <a name="avoid-mocks"></a>Avoid mocks
 
 Mocks should stand in for expensive and/or complex __immediate
 collaborators__. Use mock object frameworks when you __have__ to; overuse of
@@ -139,10 +121,10 @@ When mock objects are programmed __to return other mock objects__, that is
 often a design smell, i.e. indicative that there is something amiss with the
 design.
 
-Prefer using real, stub or fake objects instead, using data packaged as a
+Prefer using real, stub, or fake objects instead, using data packaged as a
 hermetic (i.e. version-controlled) dependency of the test program.
 
-### <a name="prefer-fakes"></a>Prefer Fakes
+### <a name="prefer-fakes"></a>Prefer fakes
 
 For sufficiently complex and/or heavyweight collaborators, fakes can be far
 preferable to mocks. They can be far easier to setup and maintain, despite the
@@ -150,7 +132,7 @@ fact that they may need their own automated tests. Despite the extra work
 involved, a well-tested fake implementation may prove to be an investment that
 pays off very well over time.
 
-Ideally, the maintainer of the original code/service will provide a fake
+Ideally, the maintainer of the original code or service will provide a fake
 implementation clients can use to test against, as the maintainer will be in
 the best position to ensure the relevant feature parity between
 implementations. When that isn’t the case, as a client of a complex service,
@@ -163,11 +145,11 @@ Index](https://pypi.python.org/pypi/pyfakefs), started as a Google-internal,
 personal tool to fake out Python’s builtin file system interface for a single
 set of automated tests. Since its announcement in [Testing on the
 Toilet](https://mike-bland.com/2011/10/25/testing-on-the-toilet.html) in 2006,
-it’s now used in over 2000 automated tests at Google as of July 2014.
+it’s now used in over 2,000 automated tests at Google as of July 2014.
 
-### <a name="avoid-data-driven-tests"></a>Avoid Data-Driven Tests
+### <a name="avoid-data-driven-tests"></a>Avoid data-driven tests
 
-A “data-driven” test is characterized by single test function which is used to
+A “data-driven” test is characterized by a single test function that is used to
 iterate through an array of data structures. Each element of the array
 contains both the input data and the expected output values.
 
@@ -190,7 +172,7 @@ addition of a new test input by setting a default value. Only the tests making
 use of the new input will need to be modified, rather than having to add
 otherwise meaningless data to many data-driven test fixtures.
 
-### <a name="avoid-golden-files"></a>Avoid Golden File Tests (Unless They Make Sense)
+### <a name="avoid-golden-files"></a>Avoid golden file tests (unless they make sense)
 
 A “golden file” is a log of output from a previous run of a test program. It
 is expected that subsequent runs should produce no differences in output. If
@@ -211,7 +193,7 @@ That said, there are a few situations in which golden files make sense:
   acceptable. If it is, the golden file can be updated. If it’s not, the
   component team can fix or roll back the change.
 
-### <a name="self-contained-good-names"></a>Prefer Self-Contained Test Cases with Good Names
+### <a name="self-contained-good-names"></a>Prefer self-contained test cases with good names
 
 A “self-contained” test means that the test case includes (almost) everything
 necessary to understand the test _without having to read any surrounding
@@ -229,7 +211,7 @@ References:
 - [Testing on the Toilet: What Makes a Good
   Test?](http://googletesting.blogspot.com/2014/03/testing-on-toilet-what-makes-good-test.html)
 
-### <a name="pseudo-xunit"></a>Apply the Pseudo-xUnit Pattern If Necessary
+### <a name="pseudo-xunit"></a>Apply the pseudo-xUnit pattern if necessary
 
 While many languages now include testing libraries that follow the
 [xUnit](http://martinfowler.com/bliki/Xunit.html) style, it’s possible to
@@ -237,13 +219,13 @@ approximate the xUnit style very effectively without importing a special
 framework by following [the pseudo xUnit
 pattern](https://mike-bland.com/2014/06/05/pseudo-xunit-pattern.html).
 
-### <a name="test-repetition"></a>Well-Crafted Test Case Repetition Helps
+### <a name="test-repetition"></a>Well-Crafted test case repetition helps
 
 When a test fails, you want to know what’s different about it. Repetition in
 test case structure makes the significant differences between test cases stand
 out.
 
-### <a name="duplicate-code"></a>Duplicate Code is a (Testing) Nightmare
+### <a name="duplicate-code"></a>Duplicate code is a (testing) nightmare
 
 By contrast, implementation code that’s been copied-and-pasted is [prime
 breeding ground for catastrophic

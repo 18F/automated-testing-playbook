@@ -2,10 +2,13 @@
 permalink: /apis-and-legacy-systems/
 title: APIs and Legacy Systems
 ---
-## {{ page.title }}
-
 Technical impediments to the automated testing of existing systems and how
 to overcome them.
+
+**WORK IN PROGRESS:** This material is currently in draft form and under
+active development. See [the GitHub issues
+page](https://github.com/18F/automated-testing-playbook/issues) to examine
+progress.
 
 - [Fix the Build!](#fix-the-build)
 - [Dangle the Carrot of Revolution](#revolution)

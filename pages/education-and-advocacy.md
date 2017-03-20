@@ -2,10 +2,13 @@
 permalink: /education-and-advocacy/
 title: Education and Advocacy
 ---
-## {{ page.title }}
-
 Models and strategies for driving adoption of automated testing throughout a
 development culture.
+
+**WORK IN PROGRESS:** This material is currently in draft form and under
+active development. See [the GitHub issues
+page](https://github.com/18F/automated-testing-playbook/issues) to examine
+progress.
 
 - [Abandon Data and Absolute Reason](#abandon-data)
 - [TDD Is Not for Everyone](#tdd-is-not-for-everyone)
@@ -52,7 +55,7 @@ Chasm](http://en.wikipedia.org/wiki/Crossing_the_Chasm)* first explains the
 different
 segments of the Bell curve-shaped diffusion of innovations model:
 
-![Diffusion of Innovations and the Chasm](../assets/images/the-chasm.jpg)<br/>
+![Diffusion of Innovations and the Chasm](../images/the-chasm.jpg)<br/>
 _Image by Catherine Laplace based on other illustrations of the “Crossing the
 Chasm” model._
 
